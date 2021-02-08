@@ -10,6 +10,12 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGL2D.json", {onProgress: UnityProgress});
+      function disableEdgeCanvasDrag() {
+var canvas = document.querySelector('canvas');
+if (!canvas) return setTimeout(disableEdgeCanvasDrag, 1000);
+canvas.ondragstart = function(e) { e.preventDefault(); };
+}
+disableEdgeCanvasDrag();
     </script>
   </head>
   <body>
